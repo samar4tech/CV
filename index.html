@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+    <style>
+       :root {
+        --clr-neon: rgb(124, 21, 95);
+        --clr-bg: hsl(323 21% 16%);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+      body {
+        background-color: #c3c3;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .container {
+        position: relative;
+        margin: 50px;
+        width: 100%;
+        max-width: 1000px;
+        min-height: 1000px;
+        background-color: #fff;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        border-radius: 2px;
+      }
+      .left {
+        position: relative;
+        background-color: #003147;
+        background-color:hsl(323 21% 16%) ;
+        padding: 40px;
+      }
+      .profileText {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .imgbox {position: relative;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      .imgbox img {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70%;
+        height: 50%;
+        object-fit: contain;
+        border-radius: 50%;
+        background-color: #fff;
+        filter: hue-rotate(45deg);
+      }
+      .profileText h2 {
+        color: #fff;
+        font-size: 1.5em;
+        margin-top: 20px;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+        text-shadow: 0 0 3px #fff, 0 0 6px #fff, 0 0 9px #fff;
+        line-height: 1.4em;
+      }
+      .profileText h2 span {
+        font-size: 0.8em;
+        font-weight: 300;
+      }
+      .contactinfo {
+        padding-top: 40px;
+      }
+      .title {
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+      }
+      .contactinfo ul {
+        position: relative;
+      }
+      .contactinfo ul li {
+        list-style: none;
+        margin: 10px 0;
+        cursor: pointer;
+      }
+      .contactinfo ul li .icon {
+        display: inline-block;
+        width: 30px;
+        font-size: 18px;
+        color: #03a9f4;
+        color:hsl(317 100% 54%);
+        color: var(--clr-neon);
+      }
+      .contactinfo ul li span {
+        color: #fff;
+        font-weight: 300;
+      }
+      .text {
+        font-size: 11px;
+      }
+      .education li {
+        /* display: inline-block; */
+        margin-bottom: 15px;
+      }
+      .education h5 {
+        color: #03a9f4;
+        color:hsl(317 100% 54%);
+        color: var(--clr-neon);
+        font-weight: 500;
+      }
+      .education h4:nth-child(2) {
+        color: #fff;
+        font-weight: 500;
+      }
+      .education h3 {
+        color: #fff;
+        font-weight: 300;
+      }
+   .percent {
+        position: relative;
+        width: 100%;
+        height: 4px;
+        background-color: #081921;
+        display: block;
+        margin-top: 5px;
+
+      }
+      .language .percent div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+
+        background-color: #03a9f4;
+      
+        background-color:var(--clr-neon)
+      }
+      .right {
+        position: relative;
+        background-color: #fff;
+        padding: 40px;
+      }
+      .about {
+        margin-bottom: 50px;
+      }
+      .about p {
+        margin-bottom: 0;
+      }
+      .title2 {
+        color: #003147;
+        color: var(--clr-neon);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        text-shadow:0 0 2px #fff, 0 0 3px var(--clr-neon),
+        0 0 6px var(--clr-neon),
+        0 0 9px var(--clr-neon);
+      }
+      p {
+        color: #333;
+      }
+      .about .box {
+        display: flex;
+        margin: 20px 0;
+      }
+      .about .box .year_company {
+        min-width: 150px;
+      }
+      .about .box .year_company h5 {
+        text-transform: uppercase;
+        color: #848c90;
+        font-weight: 600;
+        transition: 0.5s;
+      }
+      .project{
+        cursor: pointer;
+      }
+      .about .box .year_company h5:hover{
+        color:var(--clr-bg);
+        transform: scale(1.2);
+        text-shadow:0 0 2px #fff, 0 0 3px var(--clr-neon),
+        0 0 6px var(--clr-neon),
+        0 0 9px var(--clr-neon);
+      }
+      .about .box .text h4 {
+        text-transform: uppercase;
+        color: #2a7da2;
+      color: var(--clr-neon);
+        font-size: 16px;
+      }
+      .skills .box {
+        position: relative;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        justify-content: center;
+        align-items: center;
+      }
+      .skills .box h4 {
+        text-transform: uppercase;
+        color: #848c90;
+        font-weight: 500;
+      }
+      .skills .box .percent {
+        position: relative;
+        width: 100%;
+        height: 10px;
+        background-color: #f0f0f0;
+      }
+      .skills .box .percent div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: #03a9f4;
+        background-color: hsl(317 100% 54%);
+        background-color: var(--clr-neon);
+      }
+      .interest ul{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+      }
+      .interest ul li{
+        list-style: none;
+        color:#333;
+        font-weight: 100;
+        font-size: 9px;
+        margin: 10px 0;
+      }
+      .interest ul li .fa{
+        color: #03a9f4;
+        color:hsl(317 100% 54%);
+        color: var(--clr-neon);
+        font-size: 13px;
+        width: 20px;
+      }
+     
+      @media screen and (max-width:1000px){
+        .container{
+          margin: 10px;
+          grid-template-columns: repeat(1,1fr);
+        }
+        .interest ul{
+          grid-template-columns: repeat(2,1fr);
+        }
+      }
+      @media screen and (max-width:600px){
+        .about .box{
+          flex-direction: column;
+        }
+        .about .box .year_company{
+          min-width: 150px;
+          margin-bottom: 5px;
+        }
+        .interest ul{
+          grid-template-columns: repeat(1,1fr);
+        }
+        .skills .box{
+          grid-template-columns: repeat(1,1fr);
+        }
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <div class="profileText">
+          <div class="imgbox">
+            <img src="mee.jpg" />
+          </div>
+          <h2>Samar Fatima<br /><span>Web Developer</span></h2>
+        </div>
+        <div class="contactinfo">
+          <h3 class="title">Contact Info</h3>
+          <ul>
+            <li>
+              <span class="icon"
+                ><i class="fa fa-phone" aria-hidden="true"></i
+              ></span>
+              <span class="text">+91-333-333-3333</span>
+            </li>
+            <li>
+              <span class="icon"
+                ><i class="fa fa-envelope" aria-hidden="true"></i
+              ></span>
+              <span class="text">samar.khan7393@gmail.com</span>
+            </li>
+            <li>
+              <span class="icon"
+                ><i class="fa fa-linkedin" aria-hidden="true"></i
+              ></span>
+              <span class="text">www.linkedin.com/me</span>
+            </li>
+            <li>
+              <span class="icon"
+                ><i class="fa fa-map-marker" aria-hidden="true"></i
+              ></span>
+              <span class="text"> Faizabad(U.P) India </span>
+            </li>
+          </ul>
+        </div>
+        <div class="contactinfo education">
+          <h3 class="title">Education</h3>
+          <ul>
+            <li>
+              <h5>2021-Present</h5>
+              <h4>MCA</h4>
+              <!-- <h4>A.M.U</h4> -->
+              <h3>Aligarh Muslim University</h3>
+            </li>
+            <li>
+              <h5>2018-21</h5>
+              <h4>B.Sc</h4>
+              <!-- <h4>A.M.U</h4> -->
+              <h3>Aligarh Muslim University</h3>
+            </li>
+          </ul>
+        </div>
+        <div class="contactinfo language">
+          <h3 class="title">Languages</h3>
+          <ul>
+            <li>
+              <span class="text">Urdu</span>
+
+              <span class="percent">
+                <div style="width: 90%"></div>
+              </span>
+            </li>
+            <li>
+              <span class="text">English</span>
+              <span class="percent"> <div style="width: 80%"></div></span>
+            </li>
+            <li>
+              <span class="text">Hindi</span>
+              <span class="percent"> <div style="width: 70%"></div></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="about">
+          <h2 class="title2">Career Objective</h2>
+          <p>
+            Front-End Developer with a proven
+ability to collaborate effectively with
+senior developers while spending
+extra time to be mentored. Enjoy
+working closely with team members
+to ensure workloads are effectively
+redirected to bottlenecks and
+personally picking up the slack when
+necessary. With a passion for both
+personal growth and for software
+development, I attended a 1000+ hour
+coding bootcamp to learn new
+languages while sharpening existing
+skills. Ready to apply my passion for
+coding to a talented engineering
+team to develop quality solutions.
+          </p>
+        </div>
+        <div class="about">
+          <h2 class="title2">projects</h2>
+          <div class="box">
+            <div class="year_company">
+              <!-- <h5>2019-present</h5> -->
+             <a class="project" href="https://samar4tech.github.io/E-Commerce-website/"> <h5>E-commerce website</h5></a>
+              
+            </div>
+            <div class="text">
+              <!-- <h4>Senior UX Designer</h4> -->
+              <h4></h4>
+              <p>
+                I've designed an e-commerce website for a small brand RedStore, that website is purely designed with html and css only.
+              </p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="year_company">
+              <!-- <h5>2016-19</h5>
+              <h5>Company Name</h5> -->
+              <a class="project" href="https://samar4tech.github.io/Nike-Shoe-UI/"> <h5>NIKE UI</h5></a>
+            </div>
+            <div class="text">
+              <!-- <h4>NIKE UI</h4> -->
+              <p>
+               while learning ,I got an opportunity to design a UI for Nike brand.
+              </p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="year_company">
+              <!-- <h5>2014-2016</h5>
+              <h5>Company Name</h5> -->
+             <a class="project" href="https://samar4tech.github.io/typing_Animation/"> <h5>Animated Ring and typing animation</h5></a>
+            </div>
+            <div class="text">
+              <!-- <h4>Animated Ring,typing animation etc</h4> -->
+              <p>
+               These are number of other small projects beside the mentioned one like animated card,card hover effect,smiley animated face etc which I've designed with the help of html and css technologies.
+              </p>
+            </div>
+          </div>
+        
+        </div>
+        <div class="about skills">
+          <h2 class="title2">Professional Skills</h2>
+          <div class="box">
+            <h4>HTML</h4>
+            <div class="percent">
+              <div style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="box">
+            <h4>CSS</h4>
+            <div class="percent">
+              <div style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="box">
+            <h4>Javascript</h4>
+            <div class="percent">
+              <div style="width: 40%"></div>
+            </div>
+          </div>
+          <div class="box">
+            <h4>React</h4>
+            <div class="percent">
+              <div style="width: 45%"></div>
+            </div>
+          </div>
+          <div class="box">
+            <h4>C++</h4>
+            <div class="percent">
+              <div style="width: 40%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="about interest">
+          <h2 class="title2">Interest</h2>
+          <ul>
+            <li><i class="fa fa-cutlery" aria-hidden="true"></i>Baking</li>
+            <li><i class="fa fa-podcast" aria-hidden="true"></i>listening podcast</li>
+            <li><i class="fa fa-book" aria-hidden="true"></i>Reading fictions</li>
+            
+          </ul>
+      </div>
+    </div>
+  </body>
+</html>
